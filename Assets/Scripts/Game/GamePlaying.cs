@@ -7,7 +7,7 @@
  Source File GamePlaying.cs : The game's playing state
  */
 
-using GUI;
+//using GUI;
 
 namespace Game
 {

@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/*
+    name:  Nayeli Castro
+    ID:   2340374
+    email: ncastro@chapman.edu
+    class:  CPSC-245-1 
+    title:  Final: "Z-Clicker" 
+ Source File GameEnd.cs : The game's end state
+ */
 
-public class GameEnd : MonoBehaviour
+//using GUI;
+
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameEnd : GameStates
     {
-        
-    }
+        public GameEnd(ZClicker zGame) : base(ZGameInstance) { }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void OnStateEnter()
+        {
+
+        }
+
+        public override void OnStateExit()
+        {
+            //When The Game Exits GameEnd, add the requisite functions
+        }
     }
 }

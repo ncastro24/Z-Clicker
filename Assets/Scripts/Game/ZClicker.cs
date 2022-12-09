@@ -7,7 +7,7 @@
  Source File GameStates.cs : Stores the game's main functionalities.
  */
 
-using GUI;
+//using GUI;
 using UnityEngine;
 
 namespace Game
@@ -21,10 +21,11 @@ namespace Game
 
         protected static GameStates.GameStateType currentState;
 
-        // Start is called before the first frame update
-        void Start()
-        {
+        public Timer Timer;
 
+        public string ReturnCurrentGameType()
+        {
+            return currentState.ToString();
         }
 
         // Update is called once per frame
