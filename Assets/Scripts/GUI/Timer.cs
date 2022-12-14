@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     private string printTime = "";
 
     public GameSceneManager gamescenemanager;
+    private bool counting = true;
 
     void Start()
     {
@@ -59,8 +60,8 @@ public class Timer : MonoBehaviour
     {
         isDisplayUpdating = false;
         int countSeconds = countdownFromNum;
-
-        while (currentState == GameStates.GameStateType.GamePlaying && counting)
+            //currentState == GameStates.GameStateType.GamePlaying && counting
+            while (counting)
         {
             countSeconds--;
             UpdateDisplay(countSeconds);

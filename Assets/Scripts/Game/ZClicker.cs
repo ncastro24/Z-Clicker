@@ -22,16 +22,48 @@ namespace Game
         protected static GameStates.GameStateType currentState;
 
         public Timer Timer;
+        public static Countdown Countdown;
 
         public string ReturnCurrentGameType()
         {
             return currentState.ToString();
         }
 
-        // Update is called once per frame
-        void Update()
+        void Awake()
         {
-
+            GamePlaying = new GamePlaying(this);
+            GameWaiting = new GameWaiting(this);
+            GameEnd = new GameEnd(this);
+            Timer = GetComponent<Timer>();
+            Countdown = GetComponent<Countdown>();
+        }
+        void Start()
+        {
+            currentState = GameStates.GameStateType.GameWaiting;
+            NewGameState(GameStates.GameStateType.GameWaiting);
+        }
+        public static void NewGameState(GameStates.GameStateType newState)
+        {
+            GamePlaying.OnStateExit();
+            GameWaiting.OnStateExit();
+            GameEnd.OnStateExit();
+            currentState = newState;
+            switch (currentState)
+            {
+                case GameStates.GameStateType.GamePlaying:
+                    GamePlaying.OnStateEnter();
+                    break;
+                case GameStates.GameStateType.GameWaiting:
+                    GameWaiting.OnStateEnter();
+                    break;
+                case GameStates.GameStateType.GameEnd:
+                    GameEnd.OnStateEnter();
+                    break;
+            }
+        }
+        public static GameStates.GameStateType GetCurrentState()
+        {
+            return currentState;
         }
     }
 }

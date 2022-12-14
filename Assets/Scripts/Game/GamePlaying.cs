@@ -17,7 +17,7 @@ namespace Game
 
         public override void OnStateEnter()
         {
-            
+            Timer.StartCountDownTimer();
         }
 
         public override void OnStateExit()

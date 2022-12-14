@@ -17,7 +17,8 @@ namespace Game
 
         public override void OnStateEnter()
         {
-
+            ZClicker.Countdown.StartCoroutine("CountingDown");
+            ScoreKeeper.ResetScore();
         }
 
         public override void OnStateExit()
