@@ -16,7 +16,7 @@ public class ScoreKeeper : MonoBehaviour
     private static int score = 0;
 
     public Text ScoreText;
-    public static string printScore = "Score: 00";
+    public static string printScore = "Score: 0";
 
     private void Update()
     {
@@ -26,7 +26,7 @@ public class ScoreKeeper : MonoBehaviour
     public static void AddToScore(int amount)
     {
         score += amount;
-        printScore = "Score: 0" + score;
+        printScore = "Score: " + score;
     }
 
     public static int GetScore()
@@ -36,7 +36,7 @@ public class ScoreKeeper : MonoBehaviour
     public static void ResetScore()
     {
         score = 0;
-        printScore = "Score: 00";
+        printScore = "Score: 0";
     }
 
     public static void EndScore()

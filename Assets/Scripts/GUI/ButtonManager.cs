@@ -9,27 +9,28 @@
 
 using UnityEngine;
 
-public class ButtonManager : MonoBehaviour
-{
-    public GameSceneManager gamescenemanager;
-
-    public void OnStartClick()
+    public class ButtonManager : MonoBehaviour
     {
-        gamescenemanager.LoadGame();
-    }
+        //protected static GameStates.GameStateType currentState;
+        public GameSceneManager gamescenemanager;
 
-    public void OnQuitClick()
-    {
-        gamescenemanager.QuitGame();
-    }
+        public void OnStartClick()
+        {
+            gamescenemanager.LoadGame();
+        }
 
-    public void OnMenuClick()
-    {
-        gamescenemanager.LoadMainMenu();
-    }
+        public void OnQuitClick()
+        {
+            gamescenemanager.QuitGame();
+        }
 
-    public void OnZClick()
-    {
-        ScoreKeeper.AddToScore(1);
+        public void OnMenuClick()
+        {
+            gamescenemanager.LoadMainMenu();
+        }
+
+        public void OnZClick()
+        {
+            ScoreKeeper.AddToScore(1);
+        }
     }
-}

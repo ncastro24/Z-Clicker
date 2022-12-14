@@ -17,6 +17,7 @@ public class AchievementManager : MonoBehaviour
 {
     public static List<Achievement> achievements;
 
+    //public int score = ScoreKeeper.GetScore();
     public int score;
 
     public bool AchievementUnlocked(string achievementName)
@@ -42,19 +43,27 @@ public class AchievementManager : MonoBehaviour
         InitializeAchievements();
     }
 
+    public void ScoreVal()
+    {
+        score = ScoreKeeper.GetScore();
+    }
+
     private void InitializeAchievements()
     {
         if (achievements != null)
             return;
 
         achievements = new List<Achievement>();
-        achievements.Add(new Achievement("Step By Step", "Press Z 10 times!", (object o) => score >= 10));
-        achievements.Add(new Achievement("Not So Precise", "Press Z 20 times!", (object o) => score >= 20));
+        achievements.Add(new Achievement("On a Roll", "Press Z 10 times!", (object o) => score == 10));
+        achievements.Add(new Achievement("On a Bread", "Press Z 20 times!", (object o) => score == 20));
+        achievements.Add(new Achievement("On a Bagel", "Press Z 50 times!", (object o) => score == 50));
+        achievements.Add(new Achievement("Rolled too Far", "Press Z 100 times!", (object o) => score == 100));
     }
 
     private void Update()
     {
         CheckAchievementCompletion();
+        ScoreVal();
     }
 
     private void CheckAchievementCompletion()

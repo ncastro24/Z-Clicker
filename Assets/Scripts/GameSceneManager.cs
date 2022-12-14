@@ -28,7 +28,7 @@ public class GameSceneManager : MonoBehaviour
 
     public static void LoadEndScreen()
     {
-        SceneManager.LoadScene("EndScreen");
+        SceneManager.LoadScene("End");
     }
 
 
