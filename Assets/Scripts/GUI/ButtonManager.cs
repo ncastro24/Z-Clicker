@@ -27,4 +27,9 @@ public class ButtonManager : MonoBehaviour
     {
         gamescenemanager.LoadMainMenu();
     }
+
+    public void OnZClick()
+    {
+        ScoreKeeper.AddToScore(1);
+    }
 }

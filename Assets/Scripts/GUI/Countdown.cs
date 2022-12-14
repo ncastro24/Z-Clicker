@@ -13,17 +13,29 @@ using Game;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Countdown : ZClicker
-{
-    // Start is called before the first frame update
-    void Start()
+    public class Countdown : ZClicker
     {
-        
-    }
+        private int countdownFromNum = 4;
+        public Text countdownText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private IEnumerator CountingDown()
+        {
+            int counter = countdownFromNum;
+            while (counter >= 0)
+            {
+                yield return new WaitForSeconds(1);
+                counter--;
+                countdownText.text = counter.ToString();
+            }
+            countdownText.text = "START";
+            yield return new WaitForSeconds(1);
+            //PlayerMovement.enableMove();
+            Destruction();
+        }
+
+        private void Destruction()
+        {
+            NewGameState(GameStates.GameStateType.GamePlaying);
+            countdownText.text = "";
+        }
     }
-}
